@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FileExampleController;
+use App\Models\Upload;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['uploads' => Upload::all()]);
 });
+
+Route::post('upload', [FileExampleController::class, 'upload']);
+Route::get('download/{uploadId}', [FileExampleController::class, 'download']);
