@@ -60,6 +60,8 @@ return [
             'suffix' => env('SQS_SUFFIX'),
             'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
             'after_commit' => false,
+            'endpoint' => env('AWS_ENDPOINT', 'http://localhost:4566'),
+            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
         'redis' => [
